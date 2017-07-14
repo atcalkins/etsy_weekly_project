@@ -9,19 +9,26 @@ console.log(data);
 // 1: Show me how to calculate the average price of all items.
 function question1 () {
   // Answer:
-  for (let i = 0; i < price.length; i++) {
-}
+  let sum = 0;
+  let average = 0;
+  for(let i = 0; i < data.length; i++) {
+      sum += data[i].price;
+    }
+    average = (sum/data.length).toFixed(2);
+    console.log(average);
+
+  }
 
 // 2: Show me how to get an array of items that cost between $14.00 and $18.00 USD
 function question2 () {
   // Answer:
-  let itemArray = [];
+  let items = [];
   for( let i = 0; i < data.length; i++) {
     if(data[i].price >= 14.00 && data[i].price <= 18.00) {
-      itemArray += data[i].title + "\n";
+      items += data[i].title + "\n";
     }
   }
-  console.log(itemArray);
+  console.log(items);
 }
 
 
@@ -30,10 +37,9 @@ function question3 () {
   // Answer:
   for (let i = 0; i < data.length; i++) {
     if (data[i].currency_code === "GBP") {
-      console.log(data[i].title + " price ") + data[i].price + " dollars ";
+      console.log(data[i].title + " is " + data[i].price + " GBP ");
     }
   }
-
 }
 
 
@@ -41,10 +47,10 @@ function question3 () {
 function question4 () {
   // Answer:
   for (let i = 0; i < data.length; i++) {
-  if (data[i].tags === "wood") {
-    console.log(data[i].title);
+      if (data[i].materials.includes("wood")) {
+      console.log(data[i].title);
+    }
   }
-}
 }
 
 
@@ -52,11 +58,26 @@ function question4 () {
 //    Display the name, number of items and the items it is made of.
 function question5 () {
   // Answer:
+  for(let i = 0; i < data.length; i++) {
+    let total = data[i];
+    if(total.materials.length >= 8) {
+      console.log(total.title);
+      total.materials.forEach(function(materials) {
+        console.log(" - " + materials);
+      });
+    }
+  }
 }
-
 
 // 6: How many items were made by their sellers?
 // Answer:
 function question6 () {
   // Answer:
+  let items = []
+  for (let i = 0; i < data.length; i++) {
+    if (data[i].who_made === "i_did" ) {
+      items.push(data[i].who_made)
+    }
+  }
+  console.log(items.length);
 }
