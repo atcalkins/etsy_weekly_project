@@ -15,7 +15,7 @@ function question1 () {
       sum += data[i].price;
     }
     average = (sum/data.length).toFixed(2);
-    console.log(average);
+    console.log("The average price is " + average);
 
   }
 
@@ -37,7 +37,7 @@ function question3 () {
   // Answer:
   for (let i = 0; i < data.length; i++) {
     if (data[i].currency_code === "GBP") {
-      console.log(data[i].title + " is " + data[i].price + " GBP ");
+      console.log(data[i].title + " costs " + data[i].price + " pounds ");
     }
   }
 }
@@ -48,7 +48,7 @@ function question4 () {
   // Answer:
   for (let i = 0; i < data.length; i++) {
       if (data[i].materials.includes("wood")) {
-      console.log(data[i].title);
+      console.log(data[i].title + " is made of wood");
     }
   }
 }
@@ -79,5 +79,5 @@ function question6 () {
       items.push(data[i].who_made)
     }
   }
-  console.log(items.length);
+  console.log(items.length + " items were made by their sellers");
 }
